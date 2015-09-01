@@ -2,23 +2,35 @@ angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal) {
 
+  var secretCode = [0, 1, 2, 3];
+  var userGuess = [];
+
+
   // These icon classes are for mapping the selected guesses to the UI
   $scope.icons = ['ion-social-apple', 'ion-social-android','ion-social-angular','ion-social-html5'];
 
   // The current selected icon to assign to any clicked position.
-  // TODO: Needs to be set when buttons in menu.html are clicked.
   $scope.selectedIcon = 0;
+
+  $scope.setSelected = function(num) {
+    $scope.selectedIcon = num;
+    console.log($scope.selectedIcon)
+  }
 
   // Initialize game state
   $scope.newGame = function() {
     // TODO: Set all data properties/structures to their beginning state
+    $scope.selectedIcon = 0;
 
   };
 
   // Run newGame() upon loading
   $scope.newGame();
-
-  /* 
+  $scope.setUserCode = function(position) {
+    userGuess[position] = $scope.selectedIcon;
+    console.log(userGuess);
+  }
+  /*
   TODO: Call this function when the user clicks a 'score' button.
         The 'score' button should remain disabled until all positions have a value.
         Maybe a button with an icon of a checkmark would be a good UI choice? Or,
