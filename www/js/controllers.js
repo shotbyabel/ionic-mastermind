@@ -3,7 +3,7 @@ angular.module('starter.controllers', [])
 .controller('AppCtrl', function($scope, $ionicModal) {
 
   var secretCode = [0, 1, 2, 3];
-  var userGuess = [];
+  $scope.userGuess = [];
 
 
   // These icon classes are for mapping the selected guesses to the UI
@@ -17,6 +17,10 @@ angular.module('starter.controllers', [])
     console.log($scope.selectedIcon)
   }
 
+  $scope.setIconClass = function(position) {
+    return $scope.icons[$scope.userGuess[position]];
+  }
+
   // Initialize game state
   $scope.newGame = function() {
     // TODO: Set all data properties/structures to their beginning state
@@ -27,8 +31,8 @@ angular.module('starter.controllers', [])
   // Run newGame() upon loading
   $scope.newGame();
   $scope.setUserCode = function(position) {
-    userGuess[position] = $scope.selectedIcon;
-    console.log(userGuess);
+    $scope.userGuess[position] = $scope.selectedIcon;
+    console.log($scope.userGuess);
   }
   /*
   TODO: Call this function when the user clicks a 'score' button.
