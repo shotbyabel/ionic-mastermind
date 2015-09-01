@@ -32,15 +32,19 @@
               to the currently selected icon.
           -->
           <div class="button-bar">
-            <button class="button button-icon icon ion-ios-more " ng-click="setUserCode(0)"></button>
-            <button class="button button-icon icon ion-ios-more " ng-click="setUserCode(1)"></button>
-            <button class="button button-icon icon ion-ios-more " ng-click="setUserCode(2)"></button>
-            <button class="button button-icon icon ion-ios-more " ng-click="setUserCode(3)"></button>
+            <button class="button button-icon icon ion-ios-more " ng-click="setUserCode(0)"
+            ng-class="setIconClass(0)"></button>
+            <button class="button button-icon icon ion-ios-more " ng-click="setUserCode(1)"
+            ng-class="setIconClass(1)"></button>
+            <button class="button button-icon icon ion-ios-more " ng-click="setUserCode(2)"
+            ng-class="setIconClass(2)"></button>
+            <button class="button button-icon icon ion-ios-more " ng-click="setUserCode(3)"
+            ng-class="setIconClass(3)"></button>
           </div>
         </div>
         <div class="col col-20 text-center left-border">
           <div class="score-wrap">
-            <button class="button button-balanced" ng-click>
+            <button class="button button-balanced" ng-disabled="{{userGuess.length < 3}}">
               Score
             </button>
             <!-- TODO: If not current turn, display the score for turn.
